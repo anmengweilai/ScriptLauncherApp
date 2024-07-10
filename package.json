@@ -1,25 +1,37 @@
 {
-  "name": "scriptlauncherapp",
+  "name": "script-launcher-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "max dev",
+    "build": "tsc && max build",
+    "setup": "max setup",
+    "start": "npm run dev",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri dev",
+    "start:app": "cross-env UMI_ENV=dev PORT=1420 pnpm run tauri"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "^2.4.4",
+    "@tauri-apps/api": "^1",
+    "@umijs/max": "^4.3.1",
+    "antd": "^5.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@tauri-apps/api": "^1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.2.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.3.1",
-    "@tauri-apps/cli": "^1"
+    "cross-env": "^7.0.3",
+    "husky": "^9",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "typescript": "^5.2.2"
   }
 }
