@@ -2,29 +2,37 @@
   "name": "script-launcher-app",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "max dev",
     "build": "tsc && max build",
     "setup": "max setup",
     "start": "npm run dev",
     "preview": "vite preview",
-    "tauri": "tauri dev",
-    "start:app": "cross-env UMI_ENV=dev PORT=1420 pnpm run tauri"
+    "tauri:dev": "tauri dev",
+    "start:app:dev": "cross-env UMI_ENV=dev PORT=1420 pnpm run tauri:dev",
+    "start:app:product": "cross-env UMI_ENV=product PORT=1420 pnpm run tauri:dev",
+    "build:app:apple": "pnpm tauri build --target aarch64-apple-darwin",
+    "build:app:windows": "pnpm tauri build --target x86_64-apple-darwin",
+    "build:app:intelMOS": "pnpm tauri build --target universal-apple-darwin"
   },
   "dependencies": {
+    "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/icons": "^5.0.1",
     "@ant-design/pro-components": "^2.4.4",
+    "@formatjs/intl-numberformat": "^8.10.3",
     "@tauri-apps/api": "^1",
     "@umijs/max": "^4.3.1",
     "antd": "^5.4.0",
+    "radash": "^12.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "unocss": "^0.61.4"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "@unocss/cli": "^0.59.0",
     "@vitejs/plugin-react": "^4.2.1",
     "cross-env": "^7.0.3",
     "husky": "^9",
@@ -32,6 +40,9 @@
     "prettier": "^2.8.7",
     "prettier-plugin-organize-imports": "^3.2.2",
     "prettier-plugin-packagejson": "^2.4.3",
-    "typescript": "^5.2.2"
+    "ts-node": "^10",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "typescript-json": "^6.0.3"
   }
 }
